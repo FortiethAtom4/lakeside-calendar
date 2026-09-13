@@ -6,8 +6,8 @@
                 <tr>
                     <th>
                         <form action="/" method="POST">
-                            <input class="hidden" name="month" value="{{data.get('previous_month')}}" type="number" hidden="true">
-                            <input class="hidden" name="year" value="{{data.get('previous_year')}}" type="number" hidden="true">
+                            <input type="hidden" name="month" value="{{data.get('previous_month')}}" type="number" hidden="true">
+                            <input type="hidden" name="year" value="{{data.get('previous_year')}}" type="number" hidden="true">
                             <button type="submit" class="calendar_padding">Previous Month</button>
 
                         </form>
@@ -19,8 +19,8 @@
                     </th>
                     <th>
                         <form action="/" method="POST">
-                            <input class="hidden" name="month" value="{{data.get('next_month')}}" hidden="true">
-                            <input class="hidden" name="year" value="{{data.get('next_year')}}" hidden="true">
+                            <input type="hidden" name="month" value="{{data.get('next_month')}}" hidden="true">
+                            <input type="hidden" name="year" value="{{data.get('next_year')}}" hidden="true">
                             <button type="submit" class="calendar_padding">Next Month</button>
                         </form>
                     </th>
