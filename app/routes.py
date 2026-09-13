@@ -73,7 +73,7 @@ def home_page():
 
     today = datetime.today()
 
-    body_data: dict = service.prepare_index_page(int(request.form.get("year",today.year)),int(request.form.get("month",today.month)))
+    body_data: dict = service.prepare_calendar(int(request.form.get("year",today.year)),int(request.form.get("month",today.month)))
 
     return render_template("index.html",data=body_data)
 

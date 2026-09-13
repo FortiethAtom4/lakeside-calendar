@@ -46,7 +46,7 @@ def login(email: str, pw: str) -> User | None:
 def get_user(id: int):
     return db.load_user(id)
 
-def prepare_index_page(this_year: int, this_month: int):
+def prepare_calendar(this_year: int, this_month: int):
     global WEEKDAYS
 
     this_date: dt.datetime = dt.datetime(this_year,this_month,1)
