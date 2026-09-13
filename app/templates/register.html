@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <form action="/register" method="POST">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="email_confirm">Confirm Email:</label>
+            <input type="text" id="email_confirm" name="email_confirm" required> 
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="password_confirm">Confirm Password:</label>
+            <input type="password" id="password_confirm" name="password_confirm" required>
+
+            <label for="first_name">First Name (optional):</label>
+            <input type="text" id="first_name" name="first_name">
+
+            <label for="last_name">Last Name (optional):</label>
+            <input type="text" id="last_name" name="last_name">
+
+            <button type="submit" id="register">Register</button>
+        </form>
+    </div>
+{% endblock %}

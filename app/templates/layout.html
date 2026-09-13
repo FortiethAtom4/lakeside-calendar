@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+        <script src="{{ url_for('static',filename='htmx/htmx.min.js') }}"></script>
+        <title>Lion House Calendar</title>
+    </head>
+    <body>
+        <div id="site_container">
+            {% with messages = get_flashed_messages()%}
+            {% if messages %}
+                {% for message in messages %}
+                <p class="flash_message">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+            {%endwith%}
+
+            {% if not current_user.is_authenticated %}
+                <div>
+                    Not logged in. <br>
+                    <table>
+                        <tr>
+                            <th class="top_bar"><a href="/login">Login</a></th>
+                            <th class="top_bar"><a href="/register">Register</a></th>
+                        </tr>
+                    </table>
+                </div>
+            {% else %}
+                <div>
+                    <div>
+                        {% if current_user.first_name != "" %}
+                            Hello, {{current_user.first_name}}
+                        {% else %}
+                            Hello, User
+                        {% endif %} 
+                    </div>
+                    <table>
+                        <tr>
+                            <th class="top_bar"><a href="/logout">Logout</a></th>
+                            <th class="top_bar"><a href="/register">Register</a></th>
+                        </tr>
+                    </table>
+                </div>
+            {% endif %}
+            
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

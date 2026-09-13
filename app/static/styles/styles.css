@@ -1,0 +1,53 @@
+
+/* hidden class */
+.hidden {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+    display: grid;
+    place-items: center;
+}
+
+.flash_message {
+  background-color: red;
+}
+
+.top_bar {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.hoverable {
+  background-color: white;
+}
+
+/* calendar day boxes */
+.calendar_day_padding {
+  padding: 5em;
+}
+
+.hoverable:hover {
+  background-color: grey;
+}
+
+
+.calendar_month {
+  font-size: 4em;
+}
+
+.calendar_box_border {
+  border: 2px solid black;
+}
+
+.calendar_padding {
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}

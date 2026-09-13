@@ -13,3 +13,4 @@ wheels/
 # other
 .env
 lakeside.db
+app.log

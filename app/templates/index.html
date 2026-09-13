@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        <div class="container">
+            <table align="center">
+                <tr>
+                    <th>
+                        <form action="/" method="POST">
+                            <input class="hidden" name="month" value="{{data.get('previous_month')}}" type="number" hidden="true">
+                            <input class="hidden" name="year" value="{{data.get('previous_year')}}" type="number" hidden="true">
+                            <button type="submit" class="calendar_padding">Previous Month</button>
+
+                        </form>
+                    </th>
+                    <th>
+                        <div  class="calendar_padding calendar_month">
+                            <b>{{data.get('month_name')}} {{data.get('this_year')}}</b>
+                        </div>
+                    </th>
+                    <th>
+                        <form action="/" method="POST">
+                            <input class="hidden" name="month" value="{{data.get('next_month')}}" hidden="true">
+                            <input class="hidden" name="year" value="{{data.get('next_year')}}" hidden="true">
+                            <button type="submit" class="calendar_padding">Next Month</button>
+                        </form>
+                    </th>
+                </tr>
+
+            </table>
+        </div>
+        <table align="center">
+            <tr class="calendar_padding calendar_box_border">
+                {% for day in data.get('weekdays') %}
+                    <th class="calendar_padding calendar_box_border">{{day}}</th>
+                {% endfor %}
+            </tr>
+
+            {% for week in data.get('calendar') %}
+            <tr>
+                {% for day in week %}
+                    {% if day != 0 %}
+                        <th class="calendar_day_padding calendar_box_border hoverable" hx-post="/select" hx-target="#site_container" hx-push-url="true">
+                            {{day}} 
+                        </th>
+                    {% else %}
+                        <th class="calendar_day_padding calendar_box_border"></th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

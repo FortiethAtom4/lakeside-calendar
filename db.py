@@ -6,14 +6,15 @@ engine = create_engine("sqlite:///lakeside.db")
 
 Base.metadata.create_all(engine)
 
-def insert_user(email: str, pw_hash: bytes, pw_salt: bytes, first_name: str = "", last_name: str = "") -> bool:
+def insert_user(email: str, pw_hash: bytes, pw_salt: bytes, access_level: int, first_name: str = "", last_name: str = "") -> bool:
     with Session(engine) as session:
         new_user = User(
             email=email,
             password=pw_hash,
             password_salt = pw_salt,
             first_name=first_name,
-            last_name=last_name)
+            last_name=last_name,
+            access_level=access_level)
         query = select(User).where(User.email == email)
         user_exists = session.scalar(query)
 
